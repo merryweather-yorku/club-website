@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Navbar from './navbar.tsx';
+import ContactForm from './ContactForm.tsx';
 
 function App() {
   const [page, setPage] = useState(0);
@@ -61,10 +62,13 @@ function JoinPage() {
   return (
     <>
       <h1>Join Our Team</h1>
-      <p>We're always looking for passionate students and researchers.</p>
+      <p>We're always looking for passionate student engineers.</p>
+
       <p>
-        Submit your interest via <a href="">Discord</a>.
+        Contact us via <a href="">Discord</a> or send a message below.
       </p>
+
+      <ContactForm />
     </>
   );
 }
