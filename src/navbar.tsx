@@ -1,6 +1,6 @@
 import { memo, useCallback, useState, useEffect } from 'react';
 import './navbar.css';
-import logo from './assets/logo_notext.png';
+import logo from './assets/logo_text.png';
 
 type NavbarProps = {
   setPage: (page: number) => void;
