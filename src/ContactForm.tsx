@@ -58,14 +58,14 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '500px' }}>
+    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '500px', marginRight: '10%' }}>
       <input
         type="text"
         placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         disabled={status === 'sending'}
-        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+        style={{ padding: '8px', borderRadius: '4px' }}
         required
       />
       <input
@@ -74,7 +74,7 @@ const ContactForm = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         disabled={status === 'sending'}
-        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+        style={{ padding: '8px', borderRadius: '4px' }}
         required
       />
       <input
@@ -83,7 +83,7 @@ const ContactForm = () => {
         value={company}
         onChange={(e) => setCompany(e.target.value)}
         disabled={status === 'sending'}
-        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+        style={{ padding: '8px', borderRadius: '4px' }}
         required
       />
       <textarea
@@ -91,7 +91,7 @@ const ContactForm = () => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         disabled={status === 'sending'}
-        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc', resize: 'vertical', height: '120px' }}
+        style={{ padding: '8px', borderRadius: '4px', resize: 'vertical', height: '120px' }}
         required
       />
       <button 
@@ -102,8 +102,8 @@ const ContactForm = () => {
         {status === 'sending' ? 'Sending...' : 'Submit'}
       </button>
       
-      {status === 'success' && <span style={{ color: 'green' }}>Sent successfully!</span>}
-      {status === 'error' && <span style={{ color: 'red' }}>{errorMessage || 'Failed to send.'}</span>}
+      {status === 'success' && <span style={{ color: 'var(--app-text)' }}>Sent successfully!</span>}
+      {status === 'error' && <span style={{ color: '#ef4444' }}>{errorMessage || 'Failed to send.'}</span>}
     </form>
   );
 };

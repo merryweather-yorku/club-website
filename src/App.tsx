@@ -10,10 +10,12 @@ function App() {
     <div className="app-container">
       <Navbar setPage={setPage} />
       <div className="page-content">
-        {page === 0 && <Landing />}
-        {page === 1 && <AboutPage />}
-        {page === 2 && <ProjectsPage />}
-        {page === 3 && <JoinPage />}
+        <div key={page} className="page-transition">
+          {page === 0 && <Landing />}
+          {page === 1 && <AboutPage />}
+          {page === 2 && <ProjectsPage />}
+          {page === 3 && <JoinPage />}
+        </div>
       </div>
     </div>
   );
@@ -65,7 +67,7 @@ function JoinPage() {
       <p>We're always looking for passionate student engineers.</p>
 
       <p>
-        Contact us via <a href="">Discord</a> or send a message below.
+        Contact us via <a href="https://discord.gg/tRP87GKqBE">Discord</a> or send a message below.
       </p>
 
       <ContactForm />

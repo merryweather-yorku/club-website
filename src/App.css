@@ -1,11 +1,28 @@
 /* Global app styling */
+:root, [data-theme='light'] {
+  --app-bg: #ffffff;
+  --app-text: #141414;
+  --app-h1: #222222;
+  --input-border: #cccccc;
+  --input-bg: #f9f9f9;
+}
+
+[data-theme='dark'] {
+  --app-bg: #111827;
+  --app-text: #f0f0f0;
+  --app-h1: #e0e0e0;
+  --input-border: #444444;
+  --input-bg: #222222;
+}
+
 html, body, #root {
   height: 100%;
   width: 100%;
   margin: 0;
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background: #141414;
-  color: #f0f0f0;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Main container to position navbar and page content */
@@ -23,13 +40,71 @@ html, body, #root {
   overflow-y: auto;
 }
 
+/* Page Transition */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: slideFadeIn 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
 h1 {
   margin-bottom: 1rem;
   font-size: 2.5rem;
-  color: #e0e0e0;
+  color: var(--app-h1);
+  transition: color 0.3s ease;
 }
 
 p {
   line-height: 1.6;
   margin-bottom: 1rem;
+}
+
+a {
+  color: #3b82f6;
+  transition: color 0.3s ease;
+}
+
+[data-theme='dark'] a {
+  color: #60a5fa;
+}
+
+/* Form Styling (Contact Form) */
+input, textarea {
+  background-color: var(--input-bg);
+  color: var(--app-text);
+  border: 1px solid var(--input-border);
+  font-family: inherit;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+button[type="submit"] {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
