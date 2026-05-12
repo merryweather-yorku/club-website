@@ -9,7 +9,7 @@ type NavbarProps = {
 
 const Navbar = memo(({ setPage, hideLinks }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const navigate = useCallback((page: number) => {
     setPage(page);
@@ -55,7 +55,7 @@ const Navbar = memo(({ setPage, hideLinks }: NavbarProps) => {
           ))}
         </div>
       )}
-
+      
       <div className="navbar-actions">
         {/* Theme Toggle Button */}
         <button className="icon-button" onClick={toggleTheme} aria-label="Toggle Theme">
