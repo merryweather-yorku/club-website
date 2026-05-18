@@ -55,7 +55,7 @@ const Navbar = memo(({ setPage, hideLinks }: NavbarProps) => {
           ))}
         </div>
       )}
-      
+      {/* navbar */}
       <div className="navbar-actions">
         {/* Theme Toggle Button */}
         <button className="icon-button" onClick={toggleTheme} aria-label="Toggle Theme">
